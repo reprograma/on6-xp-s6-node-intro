@@ -18,6 +18,10 @@ Status Code HTTP
 
 - https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
 
+Principios o Rest e boas práticas.
+
+- https://blog.caelum.com.br/rest-principios-e-boas-praticas/
+
 NodeJs
 
 - https://nodejs.org/en/
