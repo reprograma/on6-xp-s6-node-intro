@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Books</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<div id="app">
+		<h1>Books</h1>
+
+		<h2>Cadastrar Livro</h2>
+		
+		<label for='name'>Nome</label>
+		<input type='text' id='name' value='Torre Negra'/>
+
+		<label for='userName'>Editora</label>
+		<input type='text' value='Stephen' id='autor'/>
+
+		<button onClick='createBookClick()'>Cadastrar Livro</button>
+		<button onClick='listBooksClick()'>Listar Livros</button>
+
+		<div style='margin-top:20px;' id='mensagens'></div>
+		
+		<h2>Lista</h2>
+		<table>
+			<tr>
+			  <th>Nome</th>
+			  <th>Autor</th>
+			</tr>
+			<tbody id='books'>
+			
+			</tbody>
+		  </table>
+	</div>
+	
+	<script src="books.js">
+	</script>
+</body>
+
+</html>
