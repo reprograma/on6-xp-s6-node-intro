@@ -1,10 +1,10 @@
 # Introdução ao HTTP e NodeJs
 
-<h2>Links das Documentações:</h2>
+<h2>Links de Documentações e fontes usadas na aula:</h2>
 
 Como Funciona a Internet
 
--https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work
+- https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work
 
 HTTP
 
