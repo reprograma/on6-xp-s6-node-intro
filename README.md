@@ -21,6 +21,7 @@ Status Code HTTP
 Princípios do Rest e boas práticas.
 
 - https://blog.caelum.com.br/rest-principios-e-boas-praticas/
+- https://restfulapi.net/
 
 NodeJS
 

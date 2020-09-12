@@ -1,33 +1,31 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var books = require('./routes/books');
-var user = require('./routes/user');
+var book = require('./routes/book');
 
 const app = express();
-
-app.use(bodyParser.json())
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Allow-Methods", "*");
     next();
 });
 
+app.use(bodyParser.json())
 
 app.get("/ping", (request, response) => {
     request.send("pong");
 });
 
+app.post("/book", book.create);
 
-app.post("/books", books.create);
+app.get("/book", book.list);
 
-app.get("/books", books.list);
+app.put("/book/:id", book.update);
 
-app.put("/books", books.create);
+app.delete("/book/:id", book.remove);
 
-app.delete("/books", books.remove);
-
-app.get("/user/:user", user.login);
+app.post("/login", book.login);
 
 
 const PORT = 3001;
