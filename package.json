@@ -1,0 +1,22 @@
+{
+  "name": "on6-xp-s6-node-intro",
+  "version": "1.0.0",
+  "description": "<h2>Links de Documentações e fontes usadas na aula:</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaphaelaCristina/on6-xp-s6-node-intro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaphaelaCristina/on6-xp-s6-node-intro/issues"
+  },
+  "homepage": "https://github.com/RaphaelaCristina/on6-xp-s6-node-intro#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
