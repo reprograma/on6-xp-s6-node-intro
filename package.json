@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/nanda-oliveira/on6-xp-s6-node-intro/issues"
   },
-  "homepage": "https://github.com/nanda-oliveira/on6-xp-s6-node-intro#readme"
+  "homepage": "https://github.com/nanda-oliveira/on6-xp-s6-node-intro#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
 }
