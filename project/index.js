@@ -1,16 +1,17 @@
-const express = require('express')
-const bodyParser = require('body-parser');
+const express = require('express') // O express facilita a criação de APis com o Nodejs
+const bodyParser = require('body-parser'); // BodyPArser é uma peça de middleware expresso que 
+                                          //lê a entrada de um formulário e armazena-o como um objecto javascript 
 
-const app = express();
+const app = express(); // iniciar o nosso servidor
 
 app.use(bodyParser.json())
 
-const PORT = 3001
+const PORT = 3001 // escolher uma porta do servidor
 
-const listenFunction = () => console.log('Serve Listen in port:'+PORT)
+const listenFunction = () => console.log('Serve Listen in port:'+PORT) 
 
 
-app.listen(PORT,listenFunction)
+app.listen(PORT,listenFunction) // aqui a gente vai subir o nosso servidor
 
 const books = [
     {
@@ -22,8 +23,8 @@ const books = [
 
 
 const listBooks = (request, response)=>{
-    return response.status(200).send(books)
-}
+    return response.status(200).send(books) // response retorna o status do que ele solicitou 
+}                                          // ele retorna um código de erro ou sucesso
 const createBook = (request,response)=>{
     const book = request.body
     console.log('BOOK',book)
