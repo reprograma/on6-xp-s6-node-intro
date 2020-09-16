@@ -24,6 +24,7 @@ const books = [
 const listBooks = (request, response)=>{
     return response.status(200).send(books)
 }
+
 const createBook = (request,response)=>{
     const book = request.body
     console.log('BOOK',book)
@@ -51,7 +52,7 @@ const deleteBook = (request, response)=>{
     if(isFoundBook){
         return response.status(201).send({ message: "Livro excluido com Sucesso"})
     }else{
-        return response.status(400).send ({ message : 'Livro não encontrado'})
+        return response.status(400).send({ message : 'Livro não encontrado'})
     }
 }
 
@@ -60,7 +61,7 @@ const updateBook = (request, response) =>{
     if(id){
         return response.status(201).send({ message : 'Livro excluido com Sucesso'})
     }else{
-        return response.status(400).send ({ message : 'Falta enviar Id na url'})
+        return response.status(400).send({ message : 'Falta enviar Id na url'})
     }
 }
 
