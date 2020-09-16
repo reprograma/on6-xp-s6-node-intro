@@ -86,7 +86,7 @@ app.get("/login",toDoList)
 //-------------------------------------------------------------
 //Cadastro de um novo TODO LIST
 
-const newToDo = [{ // coloquei isso no postman
+const newToDo = [{ // coloquei isso no postman 
     title: 'compras mercado',
     text: 'arroz, feijão, carne, salada, milho',
     id: 25,
@@ -100,7 +100,7 @@ const toDoRegister = (resquest,response)=>{
     if(newToDoRegister.title && newToDoRegister.text && newToDoRegister.id && newToDoRegister.status){
         return response.status(201).send({message: 'Cadastro feito com sucesso'})
     }else{
-        return response.status(400).send({message: 'Faltou um dado'})
+        return response.status(400).send({message: 'Faltou enviar um dado'})
     }
 }
 
@@ -110,11 +110,11 @@ app.post("/login", toDoRegister)
 // atualização de um ToDoList 
 
 const upDateToDo = (request,response)=>{
-    const id = request.params.id
+    const id = request.params.id // como boa prática é bom colocar o id do produto 
     if(id){
         return response.status(201).send({message: 'lista apagada com sucesso!'})
     }else{
-        return response.status(400).send({message: ' Falta colocar o id'})
+        return response.status(400).send({message: 'Faltou enviar um dado'})
     }
 }
 app.put("/login", upDateToDo)
