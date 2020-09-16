@@ -89,7 +89,7 @@ app.get("/login",toDoList)
 const newToDo = [{ // coloquei isso no postman
     title: 'compras mercado',
     text: 'arroz, feijão, carne, salada, milho',
-    id: 25
+    id: 25,
     status: 'em espera'
 }]
 
@@ -100,7 +100,7 @@ const toDoRegister = (resquest,response)=>{
     if(newToDoRegister.title && newToDoRegister.text && newToDoRegister.id && newToDoRegister.status){
         return response.status(201).send({message: 'Cadastro feito com sucesso'})
     }else{
-        return response.status(400).send({message: 'Cadastro inválido'})
+        return response.status(400).send({message: 'Faltou um dado'})
     }
 }
 
