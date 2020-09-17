@@ -1,5 +1,5 @@
 const express = require('express')
-const books = require('./books')
+const books = require('./routes/books')
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -9,7 +9,6 @@ app.use(bodyParser.json())
 const PORT = 3001
 
 const listenFunction = () => console.log('Serve Listen in port:'+PORT)
-
 
 app.listen(PORT,listenFunction)
 
