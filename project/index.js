@@ -64,7 +64,7 @@ const updateBook = (request, response) =>{
     }
 }
 
-app.get('/book',listBooks)
+
 
 app.post('/book',createBook)
 
