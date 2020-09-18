@@ -19,6 +19,9 @@ class Todo {
 }
 
 const todoList = []
+todoList.push(new Todo("Lista de compras", "Ovo; Cotonete;"))
+todoList.push(new Todo("Livros pra ler", "Orlando; A Ignorância;"))
+todoList.push(new Todo("Filmes pra assistir", "Biutiful; Suspiria;"))
 
 function add(request, response) {
     const todoBody = request.body
