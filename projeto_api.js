@@ -1,4 +1,4 @@
-//importação -- dependencias
+//importação -- dependências
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -8,18 +8,18 @@ const app = express()
 //body-parser é um módulo que converte o body da requisição, para vários formatos. Ex.: Json
 app.use(bodyParser.json())
 
-//criando a porta para
+//criando a porta
 const port = process.env.PORT || 3000;
 
 //cria a função 
 const listenFunction = () => console.log('Serve Listen in port: ' + port)
 app.listen(port, listenFunction)
 
-//CRIANDO API PARA LOGAR
+//API
 const login = [
     {
         email: 'andreia@g.com',
-        password: '1234'
+        password: '12345'
         //id : 1
     }
 ]
@@ -35,16 +35,16 @@ const createLogin = (request, response) => {
     console.log('NEWUSER', newUser)
     login.push(newUser)
     if (newUser.name && newUser.email && newUser.password) {
-        return response.status(201).send({msg : 'User added successfully'})        
+        return response.status(201).send({msg : 'User add successfully'})        
     }else{
         return response.status(400).send({msg : 'Verificar body'})
     }
 }
 
-//Metodos htpp para API Login 
+//Metodos http para API Login 
 app.get('/logins',listLogin)
 
-app.post('/logins',createLogin)
+app.post('/logins',createLogin)//somente o post
 
 
 //API para TODO LIST
@@ -56,26 +56,26 @@ const todolist = [
         
     }
 ]
-//Listando os TODO List
+//Listando os TODO List---GET
 const tdlist = (request, response) => {
     return response.status(200).send(todolist)
 }
-//Criando os TODO List
+//Criando os TODO List---POST
 const createToDoList = async (request, response) => {    
     const todos = await request.body
     console.log('TODOLIST',todos)
     todolist.push(todos)
     if (todos.title && todos.text && todos.id){
-        return response.status(201).send({msg: 'TODO OK'})
+        return response.status(201).send({msg: 'TODO List OK'})
     }else{
-        return response.status(400).send({msg: 'TODO NOT FOUND'})
+        return response.status(400).send({msg: 'TODO List NOT FOUND'})
     }
 }
-
-const upToDoList = async (request, response) => {
-    const id = await request.params.id 
+//---PUT
+const upToDoList =  (request, response) => {
+    const id =  request.params.id 
     if(id){
-        return response.status(201).send({msg: 'To Do List excluido com sucesso'})
+        return response.status(201).send({msg: 'To Do List atualizado com sucesso'})
     }else{
         return response.status(400).send({msg : 'Veitificar ID'})
     }
@@ -83,22 +83,22 @@ const upToDoList = async (request, response) => {
 }
 const deleteToDoList = (request, response) => {
     const id = request.params.id
-    console.log('id', id)
+    console.log('ID', id  + '-->INVÁLIDO')
     var isFoundTodoList = false
     if (todolist.length > 0) {
         todolist.find((element,index) =>{
             if (element.id == id){
                 isFoundTodoList = True
-                 todolist.splice(id, 1)
+                 todolist.splice(index, 1)
             }
-        })
+        });
     }
     if(isFoundTodoList){
-        return response.status(201).send({ msg: "Excluido com Sucesso"})
+        return response.status(201).send({ msg: "Tarefa Excluída com Sucesso"})
     }else{
-        return response.status(400).send ({ msg : 'To Do List não encontrado na lista'})
+        return response.status(400).send ({ msg : 'ToDo List não encontrado na lista'})
     }
-    //localStorage.setItem('todolist', Json.stringify(todolist))   
+    
 
 }
 
