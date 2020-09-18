@@ -25,9 +25,9 @@ function add(request, response) {
     if(!(todoBody.title && todoBody.text))
         return response.status(400).send({message: 'Missing body information.'})
 
-    const todo = new Todo(todoBody.title, todoBody.text)
-    todoList.push(todo)
-    console.table(todo)
+    const todoObj = new Todo(todoBody.title, todoBody.text)
+    todoList.push(todoObj)
+    console.table(todoObj)
     return response.status(201).send({message: 'TODO created.'})
 }
 
