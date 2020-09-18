@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "3b262597-f774-493e-bd53-a888f8115726",
+		"name": "Projeto Semana 6 - Introdução ao Nodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cadastra login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Crepusculo - Amanhecer\",\n    \"password\": \"Stephenie Meyer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastra novo usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Crepusculo\",\n    \"email\": \"Crepusculo - Amanhecer\",\n    \"password\": \"Stephenie Meyer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/cadastro",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cadastro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastra nova TODO list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Aula Reprograma - Teste\",\n    \"texto\":\"Aula do curso de backend da {Reprograma}, na quarta das 20:00 às 22:00 horas.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/cadastrotodo",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cadastrotodo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista TODO LIST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/todo",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
