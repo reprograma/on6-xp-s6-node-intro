@@ -25,33 +25,33 @@ const user = new User("Renata Abreu", "renata89abreu@gmail.com", "batatinha")
 users.push(user)
 
 function login(request, response) {
-    const bodyUser = request.body
+    const userBody = request.body
 
-    const userExists = users.filter(user => user.email === bodyUser.email)
+    const userExists = users.filter(user => user.email === userBody.email)
 
     if(userExists.length < 1)
         return response.status(401).send({message: "User doesn't exist."})
 
-    if(userExists[0].password != bodyUser.password)
+    if(userExists[0].password != userBody.password)
         return response.status(401).send({message: "User and password don't match."})
 
-    console.log(bodyUser.email + " is logged.")
+    console.log(userBody.email + " is logged.")
     return response.status(200).send({message: "You're logged in."})
 
 }
 
 function create_user(request, response) {
-    const bodyUser = request.body
+    const userBody = request.body
 
-    if(!(bodyUser.name && bodyUser.email && bodyUser.password))
+    if(!(userBody.name && userBody.email && userBody.password))
         return response.status(400).send({message: 'Missing body information.'})
 
-    const userExists = users.filter(user => user.email === bodyUser.email)
+    const userExists = users.filter(user => user.email === userBody.email)
     if(userExists.length > 0)
         return response.status(406).send({message: 'E-mail already exists in our database.'})
 
-    const objUser = new User(bodyUser.name, bodyUser.email, bodyUser.password)
-    users.push(objUser)
+    const userObj = new User(userBody.name, userBody.email, userBody.password)
+    users.push(userObj)
     console.table(users)
     return response.status(201).send({message: 'User created.'})
 }
