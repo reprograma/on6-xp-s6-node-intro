@@ -20,3 +20,7 @@ const login = (request, response) => {
         return response.status(400).send({ message: 'Usuário e/ou senha incorretos.'})
     }
 }
+
+module.exports = {
+    login
+}
