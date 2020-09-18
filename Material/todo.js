@@ -27,6 +27,7 @@ function add(request, response) {
 
     const todo = new Todo(todoBody.title, todoBody.text)
     todoList.push(todo)
+    console.table(todo)
     return response.status(201).send({message: 'TODO created.'})
 }
 
@@ -35,5 +36,22 @@ function list(request, response) {
     return response.status(200).send(todoList)
 }
 
-app.post("/add", add)
-app.get("/list", list)
+function update(request, response) {
+    const id = request.params.id
+    const todoBody = request.body
+
+    if(id < 0 || id > todoList.length-1 || todoList.length === 0) 
+        return response.status(404).send("TODO not found.")
+
+    if(!(todoBody.title && todoBody.text))
+        return response.status(400).send({message: 'Missing information.'})
+
+    todoList[id].title = todoBody.title
+    todoList[id].text = todoBody.text
+    console.table(todoList[id])
+    return response.status(202).send({message: 'TODO updated'})
+}
+
+app.post("/todo", add)
+app.get("/todo", list)
+app.put("/todo/:id", update)
