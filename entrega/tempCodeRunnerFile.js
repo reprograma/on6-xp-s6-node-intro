@@ -1,1 +1,1 @@
-/entrega/lista
+/entrega/editar

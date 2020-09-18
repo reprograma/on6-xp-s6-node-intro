@@ -84,9 +84,32 @@ const visualizarLista = (request,response) =>{
     return response.status(200).send(listaTarefa)
 }
 
-app.post('/enta/login', FazerLogin)
-app.get('/enta/todas', visualizarLista);
+const editarAtividade = (request, response) => {
+    const title = request.params.title;
+    const ListTarefa = request.body;
+    tituloValido = false;
+    if(listaTarefa.length > 0){
+        listaTarefa.find(element => {
+           if (element.title === title){
+               element.title = ListTarefa.title;
+               element.description = ListTarefa.text;
+               element.Local = ListTarefa.Local;
+               tituloValido = true;
+           }
+        });
+    }
+
+    if(tituloValido){
+        return response.status(201).send({ message :  'Lista de tarefas editada com sucesso!'});
+    } else {
+        return response.status(400).send({ message :  'Atividade não cadastrada!'})
+    }
+}
+
+app.post('/entrega/login', FazerLogin)
+app.get('/entrega/todas', visualizarLista);
 app.post('/entrega/nova', novaTarefa);
+app.put('/entrega/edit',editarAtividade)
 
 
 
