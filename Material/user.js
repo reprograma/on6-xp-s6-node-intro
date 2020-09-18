@@ -36,7 +36,7 @@ function login(request, response) {
         return response.status(401).send({message: "User and password don't match."})
 
     console.log(bodyUser.email + " is logged.")
-    return response.status(200).send({message: "Logged."})
+    return response.status(200).send({message: "You're logged in."})
 
 }
 
