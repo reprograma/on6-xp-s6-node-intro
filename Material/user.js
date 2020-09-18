@@ -15,7 +15,7 @@ app.listen(PORT,listenFunction)
 class User {
     constructor(name, email, password) {
         this.name = name
-        this.email = email
+        this.email = new String(email).toLowerCase()
         this.password = password
     }
 }
@@ -26,6 +26,7 @@ users.push(user)
 
 function login(request, response) {
     const userBody = request.body
+    userBody.email = userBody.email.toLowerCase()
 
     const userExists = users.filter(user => user.email === userBody.email)
 
