@@ -44,7 +44,7 @@ function create_user(request, response) {
     const bodyUser = request.body
 
     if(!(bodyUser.name && bodyUser.email && bodyUser.password))
-        return response.status(400).send({message: 'Missing information.'})
+        return response.status(400).send({message: 'Missing body information.'})
 
     const userExists = users.filter(user => user.email === bodyUser.email)
     if(userExists.length > 0)

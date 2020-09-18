@@ -23,7 +23,7 @@ const todoList = []
 function add(request, response) {
     const todoBody = request.body
     if(!(todoBody.title && todoBody.text))
-        return response.status(400).send({message: 'Missing information.'})
+        return response.status(400).send({message: 'Missing body information.'})
 
     const todo = new Todo(todoBody.title, todoBody.text)
     todoList.push(todo)
@@ -44,7 +44,7 @@ function update(request, response) {
         return response.status(404).send("TODO not found.")
 
     if(!(todoBody.title && todoBody.text))
-        return response.status(400).send({message: 'Missing information.'})
+        return response.status(400).send({message: 'Missing body information.'})
 
     todoList[id].title = todoBody.title
     todoList[id].text = todoBody.text
