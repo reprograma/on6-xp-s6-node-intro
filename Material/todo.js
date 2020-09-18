@@ -49,7 +49,7 @@ function update(request, response) {
     todoList[id].title = todoBody.title
     todoList[id].text = todoBody.text
     console.table(todoList[id])
-    return response.status(202).send({message: 'TODO updated'})
+    return response.status(200).send({message: 'TODO updated'})
 }
 
 app.post("/todo", add)
