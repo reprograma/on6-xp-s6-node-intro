@@ -5,3 +5,5 @@ const PORT = 3000
 
 app.use(bodyParser.json())
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
+
+app.post('/users', users.login)
