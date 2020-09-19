@@ -3,10 +3,12 @@ const { request, response } = require("express");
 
 const todos = [
     {
+        id: 1,
         title: "Estudar",
         text: "- Fazer desafio de APIs\n- Fazer o pull request"
     },
     {
+        id: 2,
         title: "Enviar currículo",
         text: "- Preparar currículo\n- Colocar no linkedin"
     }
@@ -33,8 +35,15 @@ const newTodo = (request, response) => {
 }
 
 
+//Edita uma todo list
+const updateTodo = (request, response) => {
+    const id = request.params.id
+}
+
+
 
 module.exports = {
     listTodos,
-    newTodo
+    newTodo,
+    updateTodo
 }
