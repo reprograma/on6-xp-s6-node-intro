@@ -15,3 +15,7 @@ const todos = [
 const listTodos = (request, response) => {
     return response.status(200).send(todos)
 }
+
+module.exports = {
+    listTodos
+}
