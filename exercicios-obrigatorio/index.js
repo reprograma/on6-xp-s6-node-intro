@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const login = require('./routes/login')
-const signUp = require('./routes/signUp')
+const signUp = require('./routes/signup')
 const app = express()
 const PORT = 3001
 
