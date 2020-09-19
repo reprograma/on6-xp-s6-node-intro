@@ -12,14 +12,7 @@ app.listen(PORT, function () {
 })
 
 const listas = [
-    {
-        lista: "casa",
-        texto:"Lavar louça"
-    },
-    {
-        lista: "facu",
-        texto:"Ler um livro"
-    },
+    
     {
         lista: "trabalho",
         texto:"Ler os e-mails"
@@ -35,9 +28,9 @@ const criarLista = (request, response) => {
     console.log("lista", listaCriada)
     listas.push(listaCriada)
     if (!listaCriada.lista) {
-        return response.status(201).send({ message: "Listas Cadastradas!" })
+        return response.status(201).send({ message: "Lista Cadastrada!" })
     } else {
-        return response.status(400).send({ message: "Listas não criadas!" }) // mensagem sempre em formato json {dentro das chaves}
+        return response.status(400).send({ message: "Lista não criada!" }) // mensagem sempre em formato json {dentro das chaves}
     }
 }
 
