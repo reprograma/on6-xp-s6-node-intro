@@ -1,0 +1,15 @@
+{
+  "name": "exercicios-obrigatorio",
+  "version": "1.0.0",
+  "description": "1. Entre no repositório da semana no site da reprograma",
+  "main": "entrega.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
