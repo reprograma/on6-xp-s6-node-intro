@@ -1,4 +1,5 @@
 
+
 const express = require('express')
 
 
@@ -27,26 +28,26 @@ app.listen(PORT,listenFunction)
 
 
 
- const tList = [
+ const listas = [
         {
-            titulo: "primeira tarefa",
-            texto:"Lavar as mãos",
+            titulo: "Camila",
+            texto:"camila1@gmail.com",
             id:"1"
         }
     ]
 
         const listarListas = (request, response)=>{
-        return response.status(200).send(tList)
+        return response.status(200).send(listas)
     }
 
 const criarListas = (request, response) =>{
-    const listas = request.body
-    console.log('TLIST', tList)
-    listas.push(tList)
+    const lista = request.body
+    console.log('LISTA', lista)
+    listas.push(lista)
 
     
-    if(tList.titulo && tList.texto  && tList.id){
-        return response.status(201).send({message: 'Lista cadastrada com sucesso'})
+    if(lista.tirulo && lista.texto &&  lista.id){
+        return response.status(201).send({message: 'Lista criada com sucesso'})
     }else{
         return response.status(400).send({message: 'Falta enviar o body corretamente'})
     } 
@@ -65,7 +66,7 @@ const deletarListas = (request, response) =>{
             if (id) {
                 return response.status(201).send({message: 'Lista excluída com sucesso'})
             }else{
-                return response.status(400).send({message: 'Lista não encontrado'})
+                return response.status(400).send({message: 'Lista não encontrada'})
             }
         }
     })
@@ -77,7 +78,7 @@ const deletarListas = (request, response) =>{
 const updateListas = (request, response) =>{
     const id = request.params.id
     if(id){
-        return response.status(201).send({message: 'Lista excluida com sucesso'})
+        return response.status(201).send({message: 'lista excluida com sucesso'})
     }else{
         return response.status(400).send({message: 'Falta enviar o id na url'})
     }
