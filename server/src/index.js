@@ -4,14 +4,15 @@ var book = require('./routes/book');
 
 const app = express();
 
+app.use(bodyParser.json())
+
+//Esse código é para dar permissão ao navegador mandar requests para nossas APIS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");
     res.header("Access-Control-Allow-Methods", "*");
     next();
 });
-
-app.use(bodyParser.json())
 
 app.get("/ping", (request, response) => {
     request.send("pong");
