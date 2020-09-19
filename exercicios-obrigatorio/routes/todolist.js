@@ -38,6 +38,12 @@ const newTodo = (request, response) => {
 //Edita uma todo list
 const updateTodo = (request, response) => {
     const id = request.params.id
+
+    if(id){
+        return response.status(201).send({ message : 'Todo List atualizada.'})
+    }else{
+        return response.status(400).send ({ message : 'Id não localizado.'})
+    }
 }
 
 
