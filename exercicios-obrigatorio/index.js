@@ -25,23 +25,37 @@ app.use(bodyParser.json())
 
 const PORT = 5001
 
-app.listen(PORT, function () {
-    console.log('Servidor funcionando!')
-})
+app.listen(PORT, () => console.log('Serve Listen in port:'+PORT))
 
 // Tela de login
-const login = [
+const user1 = [
     {
-        email : 'abobrinha@quando.nasce',
-        password : 'seesparramapelochão'
+        email : "abobrinha@quando.nasce",
+        password : "seesparramapelochao"
     }
 ]
 
-const userLogin = (request, response) =>{
-    return response.status(200).send(login)
+const login = (request, response) => {
+    const userBody = request.body
+    
+    if(!userBody.email && !userBody.password)
+        console.log('Preencha todos os campos corretamente')
+
+    const findUserEmail = user1.find( el => el.email === userBody.email)
+    const findUserPassword = user1.find(el => el.password === userBody.password)
+    
+    if(!findUserEmail)
+        return response.status(400).send({message: 'Esse e-mail não existe. Digite um e-mail válido'})
+    
+    if(!findUserPassword)
+        return response.status(400).send({message: 'Você digitou a senha incorretamente.'})
+
+    if(findUserEmail && findUserPassword) 
+        return response.status(201).send({message: 'Você está logado!'})
+
 }
 
-app.get('/login', userLogin)
+app.post('/login', login)
 
 // Tela de cadastro 
 
@@ -57,7 +71,7 @@ const userRegister = (request, response) => {
     const user = request.body
     console.log('Usuário', user)
     register.push(user)
-    if(register.name && register.email && register.password){
+    if(user.name && user.email && user.password){
         return response.status(201).send({ message :  'Usuário cadastrado com sucesso!'})
      }else{
         return response.status(400).send ({ message : 'Falta enviar o body corretamente'})
