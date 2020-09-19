@@ -12,6 +12,8 @@ app.listen(PORT, function () {
   console.log("Servidor funcionando");
 });
 
+//Atividade 1 : Tela de Login
+
 const dadosLogin = [
   {
     email: "teste",
@@ -31,6 +33,8 @@ const newLogin = (request, response) => {
       .send({ mensage: "Digite seus dados corretamente" });
   }
 };
+
+//Atividade 2 : Tela de Cadastro
 
 const newUser = [
   {
@@ -55,9 +59,8 @@ const createUser = (request, response) => {
   }
 };
 
-console.log("-------------------------------------");
 
-//TO DO LIST Exercício:
+//Atividade 3 : TODO List
 
 const toDoList = [
   {
@@ -97,6 +100,8 @@ const updateNote = (request, response) => {
       .send({ message: "Insira um título correto na URL." });
   }
 };
+
+//API's:
 
 app.post("/login", newLogin);
 
