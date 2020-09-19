@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const login = require('./routes/login')
+const signUp = require('./routes/signUp')
 const app = express()
 const PORT = 3001
 
@@ -8,3 +9,4 @@ app.use(bodyParser.json())
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
 
 app.post('/login', login.login)
+app.post('/sign', signUp.signUp)
