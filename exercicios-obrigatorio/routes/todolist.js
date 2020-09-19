@@ -40,10 +40,10 @@ const newTodo = (request, response) => {
 const updateTodo = (request, response) => {
     const id = request.params.id
 
-    if(id){
-        return response.status(201).send({ message : 'Todo List atualizada.'})
-    }else{
+    if(todos.find(item => item.id === id) === undefined){
         return response.status(400).send ({ message : 'Id não localizado.'})
+    }else{
+        return response.status(201).send({ message : 'Todo List atualizada.'})
     }
 }
 
