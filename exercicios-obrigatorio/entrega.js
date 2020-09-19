@@ -1,22 +1,24 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
-const app = express();
+const register = express();
 
-app.use(bodyParser.json())
+register.use(bodyParser.json()) // pro express entender que eu amandei um json
 
 const PORT = 3000
 
-app.listen(PORT, function () {
-    console.log('Servidor funcionando')
-})
+const listenFunction = () => console.log('Serve Listen in port:' +PORT)
+
+register.listen(PORT, listenFunction)
 
 const login = [
    
     {
+
         name: "Lorenna",
         email: "leticiaLima@gmail.com",
         password: 123
+
     }
 ]
 
@@ -24,16 +26,17 @@ const listLogin = (resquest, response)=>{
     return response.status(200).send(login)
 }
 
-const createLogin = (request,response)=>{
+const registerLogin = (request, response) =>{
     const newLogin = request.body
-    console.log("New Login",newLogin)
+    console.log('New register', newLogin)
     login.push(newLogin)
 
-    if(login.name && login.email && login.password){
-        return response.status(201).send({message: "iu"})
-    }else{
-        return response.status(400).send({message: "hu"})
-    }
+if(newLogin.name && newLogin.email && newLogin.password){
+    return response.status(201).send({message: "New register was created!"})
+}else{
+    return response.status(400).send({message: "New register wasn't created!"})
+}
+
 }
 
 
@@ -42,5 +45,7 @@ const createLogin = (request,response)=>{
 
 
 
-app.get('/login', listLogin)
-app.post('/login', createLogin)
+
+register.post('/site', listLogin)
+
+register.post('/site', registerLogin)
