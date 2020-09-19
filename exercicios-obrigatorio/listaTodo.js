@@ -54,44 +54,6 @@ const criarListas = (request, response) =>{
 }
 
 
-const deletarListas = (request, response) =>{
-    const id = request.params.id
-    console.log('id', id)
-    const isFoundLista = false
-    listas.find((element, index)=>{
-          if(element.id == id){
-            isFoundLista = true
-            listas.splice(index, 1)
-
-            if (id) {
-                return response.status(201).send({message: 'Lista excluída com sucesso'})
-            }else{
-                return response.status(400).send({message: 'Lista não encontrada'})
-            }
-        }
-    })
-}
 
 
-     
-
-const updateListas = (request, response) =>{
-    const id = request.params.id
-    if(id){
-        return response.status(201).send({message: 'lista excluida com sucesso'})
-    }else{
-        return response.status(400).send({message: 'Falta enviar o id na url'})
-    }
-}
-//pegar o dado
-app.get("/lista", listarListas)
-
-// POST para mandar dados para o servidor
-app.post('/lista', criarListas)
-
-//API de deletar 
-app.delete('/lista/:id', deletarListas)
-
-
-//atualizar um dado
-app.put('/lista/:id', updateListas)
+app.get('/lista', criarListas)
