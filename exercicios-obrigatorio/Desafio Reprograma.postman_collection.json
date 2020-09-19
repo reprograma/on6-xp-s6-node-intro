@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "6c5e9c24-9d47-40ea-a5bb-0aa707d616fe",
+		"name": "Desafio Reprograma",
+		"description": "Desafios da semana 6 reprograma.\r\n\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jose@gmail.com\",\r\n    \"senha\": \"batatinha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nome\" : \"Marivvaldo\",\r\n\t\"email\" : \"marivaldo@gmail.com\",\r\n\t\"senha\" : \"batatinha123\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/usuarios/9",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"usuarios",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/usuarios/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Jose da Silva\",\r\n    \"email\" : \"jose@gmail.com\",\r\n\t\"senha\" : \"batatinha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/usuarios/9",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"usuarios",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Tarefa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"titulo\" : \"Estudar\",\r\n\t\"texto\" : \"JavaScript\",\r\n\t\"concluido\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/todo",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Tarefa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/todo",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Tarefa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/todo/9",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Tarefa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/todo/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Tarefa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\" : \"Estudar\",\r\n\t\"texto\" : \"JavaScriptPHP\",\r\n\t\"concluido\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/todo/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"todo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
