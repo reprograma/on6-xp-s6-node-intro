@@ -26,7 +26,9 @@ const newTodo = (request, response) => {
     const todo = request.body
     todos.push(todo)
 
-    if(!todo.title) {
+    if(!todo.id) {
+        return response.status(400).send ({ message : 'Digite uma ID para sua Todo List'})
+    } else if(!todo.title) {
         return response.status(400).send ({ message : 'Digite um título para sua Todo List'})
     } else if(!todo.text) {
         return response.status(400).send ({ message : 'Inclua uma tarefa em sua Todo List'})
