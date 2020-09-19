@@ -1,1 +1,9 @@
 node_modules/
+Material/
+exercicios-obrigatorio
+client/
+server/
+started-nodejs/
+index.js
+package-lock.json
+README.md

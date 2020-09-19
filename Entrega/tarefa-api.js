@@ -11,71 +11,84 @@ app.listen(PORT, function () {
     console.log('Servidor funcionando')
 })
 
-const login = [
+const register = [
     {
-        email: 'abcd@gmail.com',
+        name: 'Patricia',
+        email: 'patricia@gmail.com',
         password: '123456',
     },
     {
-        email: 'efgh@gmail.com',
+        name: 'Jessica',
+        email: 'jessica@gmail.com',
         password: '123456',
+    }
+]
+
+const toDoList = [
+    {
+        title: 'Tarefas da Semana em casa',
+        text: 'Varrer casa | Lavar louça | Estudar | Lavar banheiro',
+    },
+    {
+        title: 'Tarefas do mês',
+        text: 'Pagar contas | Pagar aluguel | Comprar comida pro gato | Comprar gás',
     }
 ]
 
 // usar somente o GET para retornar mensagem de login e senha reconhecidos
 
-const listBooks = (request, response) => {
+const loginOK = (request, response) => {
 
-    return response.status(200).send(books)
+    return response.status(200).send({ message: 'E-mail e senha reconhecidos com sucesso!' })
 }
 
-const createBook = (request, response) => {
-    const book = request.body
-    console.log('BOOK', book)
-    books.push(book)
-    if (book.name && book.autor && book.id) {
-        return response.status(201).send({ message: 'Livro cadastrado com sucesso!' })
+
+const createLogin = (request, response) => {
+    const login = request.body
+    console.log('Login', register)
+    register.push(login)
+    if (login.name && login.password && login.email) {
+        return response.status(201).send({ message: 'Cadastro realizado com sucesso!' })
     } else {
-        return response.status(400).send({ mensage: 'Falta criar o body corretamente' })
+        return response.status(400).send({ mensage: 'Faltou alguma informação para o cadastro' })
     };
 
 }
 
-const deleteBook = (request, response) => {
-    const id = request.params.id
-    console.log('id', id)
-    var isFoundBook = false;
+const listToDo = (request, response) => {
 
-    if (books.length > 0) {
-        books.find((element, index) => {
-            if (element.id == id) {
-                isFoundBook = true
-                books.splice(index, 1)
-            }
-        })
-    }
+    return response.status(200).send(toDoList)
+}
 
-    if (isFoundBook) {
-        return response.status(201).send({ message: 'Livro deletado com sucesso!' })
+const createToDo = (request, response) => {
+    const list = request.body
+    console.log('ToDo', toDoList)
+    toDoList.push(list)
+    if (list.title && list.text) {
+        return response.status(201).send({ message: 'Nova tarefa adicionada com sucesso!' })
     } else {
-        return response.status(400).send({ message: 'Livro não encontrado' })
-    }
+        return response.status(400).send({ mensage: 'Faltou alguma informação para o cadastro' })
+    };
 
 }
 
-const updateBook = (request, response) => {
-    const id = request.params.id
-    if (id) {
-        return response.status(201).send({ message: 'Livro atualizado com sucesso!' })
+
+const updateToDo = (request, response) => {
+    const upList = request.params.title
+    if (upList) {
+        return response.status(201).send({ message: 'Tarefa atualizado com sucesso!' })
     } else {
-        return response.status(400).send({ message: 'Falta enviar ID na URL' })
+        return response.status(400).send({ message: 'A tarefa precisa ter um título' })
     }
 }
 
-app.get('/book', listBooks)
 
-app.post('/book', createBook)
+app.post('/login', loginOK)
 
-app.delete('/book/:id', deleteBook)
+app.post('/cadastro', createLogin)
 
-app.put('/book/:id', updateBook)
+app.get('/buscartarefas', listToDo)
+
+app.post('/novatarefa', createToDo)
+
+app.put('/atualizartarefas', updateToDo)
