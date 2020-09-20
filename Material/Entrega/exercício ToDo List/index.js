@@ -28,6 +28,7 @@ const listToDo = (request, response) => {
 const createTask = (request, response) => {
     const tasks = request.body
     console.log('Tasks:', tasks)
+
     if (tasks.title && tasks.description && tasks.id) {
         toDoList.push(tasks)
         return response.status(201).send({ message: "Tarefa cadastrada com sucesso!" })
@@ -38,23 +39,22 @@ const createTask = (request, response) => {
 
 const update = (request, response) => {
     const id = request.params.id
-    if (id) {
-        return response.status(201).send({ message: 'Tarefa atualizada com sucesso!' })
-    } else {
-        return response.status(400).send({ message: 'Falta enviar ID na URL.' })
+    const updateToDo = request.body
+   
+    toDoList.find(e => {
 
-    }
+        if (e.id == id) {
+            e.title = updateToDo.title
+            e.description = updateToDo.description
+            return response.status(201).send({ message: 'Tarefa atualizada com sucesso!' })
+        } else {
+            return response.status(400).send({ message: 'Falta enviar ID na URL.' })
+
+        }
+    })
 }
-
-// não fucionou como deveria, não consegui de fato alterar a tarefa ;/
-
-
-
 
 
 app.get('/todolist', listToDo)
 app.post('/todolist', createTask)
 app.put('/todolist/:id', update)
-
-
-
